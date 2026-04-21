@@ -22,3 +22,32 @@ def selection_sort(arr):
                 min_index = j
         arr[i],arr[min_index]=arr[min_index],arr[i]
     return arr
+
+#insertion sorting
+def insertion_sorting(arr):
+    n=len(arr)
+    for i in range(1,n):
+        insert_index = i
+        current_value = arr[i]
+        for j in range(i-1,-1,-1):
+            if arr[j] > current_value:
+                arr[j+1] = arr[j]
+                insert_index = j
+            else:
+                break 
+        arr[insert_index] = current_value
+    return arr
+
+#another method for insertion sorting
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        
+        arr[j + 1] = key
+    
+    return arr
