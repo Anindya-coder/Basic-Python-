@@ -100,3 +100,4 @@ class Solution:
                 count = 0
         return max_count
 
+#given an array of integer 'arr', find out the count of pair (i,j) from array such that i < j and arr[i] > arr[j]
