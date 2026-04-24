@@ -101,3 +101,16 @@ class Solution:
         return max_count
 
 #given an array of integer 'arr', find out the count of pair (i,j) from array such that i < j and arr[i] > arr[j]
+
+#method 1
+#brute force method- applicable for small array but not for large array
+def count_inversion(arr):
+    count = 0
+    for i in range(len(arr)):
+        for j in range(i+1,len(arr)):
+            if arr[i] > arr[j]:
+                count += 1
+    return count
+
+#method 2
+#merge shot algorithm for solving this problem
