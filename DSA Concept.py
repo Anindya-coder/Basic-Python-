@@ -101,4 +101,82 @@ def quick_sort(arr,low,high):
         
         quick_sort(arr,low,p-1)
         quick_sort(arr,p+1,high)
+        #linked list
+
+#for all linked list problems, we need to define a class that i have given below
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        
+#traversing a linked list        
+def traverse(head):
+        current_node = head
+        while current_node:
+            print(current_node.data, end = " ->")
+            current_node = current_node.next
+        print("null")
+        
+node1 = Node(1)
+
+head = node1
+
+traverse(head)
+
+#counting the number of nodes in a linked list
+def count_nodes(head):
+    count = 0
+    current_node = head
+    while current_node:
+        count += 1
+        current_node = current_node.next
+        
+    return count
+
+#finding the lowest value in a linked list
+
+def find_minimum(head):
+    if head is None:
+        return None
+    min_value = head.data
+    current_node = head.next
+    
+    while current_node:
+        if current_node.data < min_value:
+            current_node.data = min_value
+            current_node = current_node.next
+    return min_value
+
+#for finding the maximum value in a linked list, we can just change the variable name and condition to satisfy the requirement
+
+#reversing a linked list
+def reverse(head):
+    prev = None
+    current = head
+    
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+        
+    return prev
+
+#deleting a value from a linked list
+
+def delete_value(head,value):
+    if not head:
+        return None
+    
+    current = head
+    if head.data == value:
+        return head.next
+    
+    while current.next and current.next.data != value:
+        current = current.next
+        
+    if current.next:
+        current.next = current.next.next
+        
+    return head
         
