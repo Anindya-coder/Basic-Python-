@@ -179,4 +179,28 @@ def delete_value(head,value):
         current.next = current.next.next
         
     return head
+
+#doubly linked list
+#creating from scratch
+
+class Node:
+    def __init__(self, data, prev, next):
+        self.data = data
+        self.prev = prev
+        self.next = next
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
         
+    def append(self, data):
+        new_node = Node(data, None, None)
+        
+        if not self.head:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.prev = self.tail
+            self.tail.next = new_node
+            self.tail = new_node
