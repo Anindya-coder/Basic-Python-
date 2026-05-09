@@ -204,3 +204,53 @@ class DoublyLinkedList:
             new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
+#circular linked list
+class Node:
+    def __init__(self):
+        self.data = data
+        self.next = None
+        
+class CircularLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+    def is_empty(self):
+        return self.head is None
+ 
+#inserting a node at the front of a circular linked list   
+    def insert_front(self,data):
+        new_node = Node(data)
+        if self.is_empty():
+            self.head = self.tail = new_node
+            new_node.next = new_node
+        else:
+            new_node.next = self.head
+            self.tail.next = new_node
+            self.head = new_node
+    
+#inserting a node at the end of a circular linked list
+    def insert_end(self,data):   
+        new_node = Node(data)
+        if self.is_empty():
+            self.head = self.tail = new_node
+            new_node,next = new_node
+        else:
+            new_node.next = self.head
+            self.tail.next = new_node
+            self.tail = new_node
+
+#inserting a node in a specific position in a circular linked list 
+
+def isert_at_position(self, data, position):
+    if position == 0:
+        self.insert_front(data) 
+    curr = self.head
+    for _ in range(position-1):
+        curr = curr.next
+        if curr == self.head:
+            raise IndexError('Position is out of range')
+    new_node = Node(data)
+    new_node.next = curr.next
+    curr.next = new_node
+    if curr == self.tail:
+        self.tail = new_node    
